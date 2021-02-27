@@ -1,6 +1,6 @@
 package com.linkedlist;
 
-publpublic class MyLinkedList<K> {
+public class MyLinkedList<K> {
 	public static INode head;
 	public static INode tail;
 
@@ -43,6 +43,17 @@ publpublic class MyLinkedList<K> {
 	public INode<K> delete() {
 		INode<K> tempNode = this.head;
 		this.head = head.getNext();
+		return tempNode;
+	}
+
+	// UC6
+	public INode<K> deleteFromLast() {
+		INode<K> tempNode = this.head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
 		return tempNode;
 	}
 }

@@ -3,6 +3,8 @@ package com.linkedlist;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.linkedlist.INode;
 import com.linkedlist.MyLinkedList;
 import com.linkedlist.MyNode;
 
@@ -78,5 +80,20 @@ public class LinkedListTest {
 		lst.delete();
 		boolean res = MyLinkedList.head.equals(mySecondNode);
 		Assert.assertTrue(res);
+	}
+
+	// UC6 TestCase
+	@Test
+	public void deleted_LastElemntFromLinkedList() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList lst = new MyLinkedList();
+		lst.appendAfter(myFirstNode);
+		lst.appendAfter(mySecondNode);
+		lst.appendAfter(myThirdNode);
+		lst.deleteFromLast();
+		INode res = lst.deleteFromLast();
+		Assert.assertEquals(mySecondNode, res);
 	}
 }
