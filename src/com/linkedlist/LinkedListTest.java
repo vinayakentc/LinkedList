@@ -49,4 +49,19 @@ public class LinkedListTest {
 				&& MyLinkedList.tail.equals(myThirdNode);
 		Assert.assertTrue(res);
 	}
+
+	// UC4 TestCase
+	@Test
+	public void added_3NumberInBetweenTheList() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList lst = new MyLinkedList();
+		lst.add(myFirstNode);
+		lst.appendAfter(myThirdNode);
+		lst.insertInBetween(myFirstNode, mySecondNode);
+		boolean res = MyLinkedList.head.equals(myFirstNode) && MyLinkedList.head.getNext().equals(mySecondNode)
+				&& MyLinkedList.tail.equals(myThirdNode);
+		Assert.assertTrue(res);
+	}
 }
