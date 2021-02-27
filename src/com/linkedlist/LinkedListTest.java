@@ -34,4 +34,19 @@ public class LinkedListTest {
 				&& MyLinkedList.tail.equals(myFirstNode);
 		Assert.assertTrue(res);
 	}
+
+	// UC3 TestCase
+	@Test
+	public void added_3NumbersAtLast() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList lst = new MyLinkedList();
+		lst.appendAfter(myFirstNode);
+		lst.appendAfter(mySecondNode);
+		lst.appendAfter(myThirdNode);
+		boolean res = MyLinkedList.head.equals(myFirstNode) && MyLinkedList.head.getNext().equals(mySecondNode)
+				&& MyLinkedList.tail.equals(myThirdNode);
+		Assert.assertTrue(res);
+	}
 }
