@@ -1,6 +1,6 @@
 package com.linkedlist;
 
-public class MyLinkedList<K> {
+publpublic class MyLinkedList<K> {
 	public static INode head;
 	public static INode tail;
 
@@ -34,8 +34,15 @@ public class MyLinkedList<K> {
 
 	// UC4
 	public void insertInBetween(INode<K> myNode, INode<K> newNode) {
-			INode<K> tempNode = myNode.getNext();
-			myNode.setNext(newNode);
-			newNode.setNext(tempNode);
-		}
+		INode<K> tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+
+	// UC5
+	public INode<K> delete() {
+		INode<K> tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
 }
