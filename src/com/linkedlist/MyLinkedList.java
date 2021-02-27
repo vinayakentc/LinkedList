@@ -56,4 +56,13 @@ public class MyLinkedList<K> {
 		tempNode = tempNode.getNext();
 		return tempNode;
 	}
+
+	// UC7
+	public INode<K> searchNode(INode<K> targetNode) {
+		INode<K> tempNode = this.head;
+		while (!tempNode.getNext().equals(targetNode)) {
+			tempNode = tempNode.getNext();
+		}
+		return targetNode;
+	}
 }
