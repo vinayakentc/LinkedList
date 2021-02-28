@@ -110,4 +110,22 @@ public class LinkedListTest {
 		INode res = lst.searchNode(mySecondNode);
 		Assert.assertEquals(mySecondNode, res);
 	}
+
+	// UC8 TestCase
+	@Test
+	public void SearchAndInsertNewNode_addSpecificedNodeInSpecificPlaceInLinkedList() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+		MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+		MyLinkedList lst = new MyLinkedList();
+		lst.appendAfter(myFirstNode);
+		lst.appendAfter(mySecondNode);
+		lst.appendAfter(myFourthNode);
+		lst.searchNode(mySecondNode);
+		lst.searchAndInsertValue(mySecondNode, myThirdNode);
+		boolean res = lst.head.equals(myFirstNode) && lst.head.getNext().equals(mySecondNode)
+				&& lst.head.getNext().getNext().equals(myThirdNode) && lst.tail.equals(myFourthNode);
+		Assert.assertTrue(res);
+	}
 }

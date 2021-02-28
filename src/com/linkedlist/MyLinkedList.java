@@ -65,4 +65,15 @@ public class MyLinkedList<K> {
 		}
 		return targetNode;
 	}
+
+	// UC8
+	public void searchAndInsertValue(INode<K> targetNode, INode<K> newNode) {
+		INode<K> tempNode = this.head;
+		while (!tempNode.getNext().equals(targetNode)) {
+			tempNode = tempNode.getNext();
+		}
+		INode<K> tempNode1 = targetNode.getNext();
+		targetNode.setNext(newNode);
+		newNode.setNext(tempNode1);
+	}
 }
