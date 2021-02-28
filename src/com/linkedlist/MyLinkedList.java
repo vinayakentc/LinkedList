@@ -76,4 +76,38 @@ public class MyLinkedList<K> {
 		targetNode.setNext(newNode);
 		newNode.setNext(tempNode1);
 	}
+
+	// UC9
+	public INode<K> deleteNodeFromInBetweenTheList(INode<K> targetNode) {
+		INode firstNode = this.head;
+		INode tempNode = this.head;
+		while (tempNode != targetNode) {
+			tempNode = tempNode.getNext();
+		}
+		this.head = tempNode;
+		delete();
+		INode LastNode = this.head;
+		this.head = firstNode;
+		INode tempNode1 = this.head;
+		while (tempNode1.getNext() != targetNode) {
+			tempNode1 = tempNode1.getNext();
+		}
+		tempNode1.setNext(LastNode);
+		return this.head;
+	}
+
+	// Calculate List Size
+	public int listSize() {
+		int size = 0;
+		if (this.head == null)
+			return size;
+		else
+			size = 1;
+		INode tempNode = this.head;
+		while (tempNode.getNext() != null) {
+			tempNode = tempNode.getNext();
+			size++;
+		}
+		return size;
+	}
 }

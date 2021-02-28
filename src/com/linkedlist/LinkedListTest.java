@@ -128,4 +128,22 @@ public class LinkedListTest {
 				&& lst.head.getNext().getNext().equals(myThirdNode) && lst.tail.equals(myFourthNode);
 		Assert.assertTrue(res);
 	}
+
+	// UC9 TestCase
+	@Test
+	public void SearchAndDeleteNode_deleteSpecificedNodefromSpecificPlaceInLinkedList() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+		MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+		MyLinkedList lst = new MyLinkedList();
+		lst.appendAfter(myFirstNode);
+		lst.appendAfter(mySecondNode);
+		lst.appendAfter(myThirdNode);
+		lst.appendAfter(myFourthNode);
+		INode node = lst.deleteNodeFromInBetweenTheList(myThirdNode);
+		int size = lst.listSize();
+		Assert.assertEquals(3, size);
+	}
+
 }
